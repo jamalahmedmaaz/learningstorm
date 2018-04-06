@@ -8,6 +8,7 @@ import org.apache.storm.tuple.Fields;
 public class WordCountToplogy {
 
     public static void main(String[] args) {
+
         TopologyBuilder topologyBuilder = new TopologyBuilder();
         topologyBuilder.setSpout("wordCountSpout", new WordCountSpout());
         topologyBuilder.setBolt("lineSplitBolt", new LineSplitBolt(), 5).shuffleGrouping("wordCountSpout");
